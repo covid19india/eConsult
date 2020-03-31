@@ -14,8 +14,8 @@ A huge number of patients who need help with ailments which does not require hos
 
 **List of Modules planned (tentative):**
 
-- Patient Onboarding and Verification (Auth Login)
-- Doctor Onboarding and Verification (Auth Login + IMR ID Number + Hospital ID Card/Clinic Prescription\*)
+- Patient Onboarding and Verification (Auth\*\*  Login)
+- Doctor Onboarding and Verification (Auth\*\*  Login + IMR ID Number + Hospital ID Card/Clinic Prescription\*)
 - A Redis\*\* based DB to store Profiles of Patients and Doctors.
 - A Classifier which assigns cases to doctors based on Patient&#39;s requirement and availability.
 - A Bot which notifies a Doctor selected by Classifier with link to join chat with Patient.
