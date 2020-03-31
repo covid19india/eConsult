@@ -1,6 +1,6 @@
 **eConsult –** Free Medical Consultations by Volunteering Doctors
 
-**What is the pain-point that we are trying to solve here? **
+**What is the pain-point that we are trying to solve here?**
 
 COVID-19 in not the only ailment that citizens are having right now. All other diseases still exist. Right now, access to hospitals and doctors are extremely constrained. Other than emergencies, cases are not entertained in hospitals.
 
