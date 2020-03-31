@@ -4,15 +4,4 @@ A standalone bot which sends a acceptance notification followed by a group invit
 
 ## Workflow
 
-*DoctorID* received from **classifier-selector** as a parameter.
---> Bot Sends a *NotificationMessage* with options 
-**Accept** [✅] or **Pass**[💤] to Doctor bearing same ID
-
-
-[✅]
---> Doctor receives a group link, where doctor chats with patient.
---> End of Life
-
-[💤]
---> Deletes *NotificationMessage*
---> End of Life
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/1ea93ef8-95ae-4b29-8629-8ea6c4db4859" id="gkILB4smvAfX"></iframe></div>
