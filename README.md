@@ -19,6 +19,7 @@ A huge number of patients who need help with ailments which does not require hos
 - A Redis\*\* based DB to store Profiles of Patients and Doctors.
 - A Classifier which assigns cases to doctors based on Patient&#39;s requirement and availability.
 - A Bot which notifies a Doctor selected by Classifier with link to join chat with Patient.
+- A Prescription Generator which feeds on metadata from Doctor and Patient&#39;s Profile and adds digital signature of Doctor.
 - A Dialogflow Bot powered by smart intents integrating all of the above in a conversational flow, starting with onboarding/consultation and ending with generated prescription, for the Patient.
 - A feature of the Dialogflow Bot to assess risk of nCOVID contraction and issue general advisory.
 - A webpage with the Dialogflow Bot embedded in it.
