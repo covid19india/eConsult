@@ -1,0 +1,2705 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Live Helper Chat API description. You have to authorize to use API. Create API key in Live Helper Chat back office. During authorization provide operator username and key instead of password.",
+    "version": "1.0.0",
+    "title": "Live Helper Chat API",
+    "termsOfService": "",
+    "contact": {
+      "email": "remdex@gmail.com",
+      "name": "Live Helper Chat"
+    },
+    "license": {
+      "name": "",
+      "url": ""
+    }
+  },
+  "host": "{{host}}",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "chat",
+      "description": "API Related to chats"
+    },
+    {
+      "name": "user",
+      "description": "API Related to user"
+    },
+    {
+      "name": "online",
+      "description": "API Related to online status"
+    },
+    {
+      "name": "online_user",
+      "description": "API Related to online users"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/restapi/chats": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Fetch chats list",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {{chats_parameters}}{
+            "name": "departament_id",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "departament_ids",
+            "in": "query",
+            "description": "Department ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "departament_groups_ids",
+            "in": "query",
+            "description": "Department group ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Phone",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Email",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "nick",
+            "in": "query",
+            "description": "Nick",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "description": "How many seconds has to be passed from chat start. It's usefull if you want to fetch chats older than n seconds. It's time in seconds from chat start.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "id_gt",
+            "in": "query",
+            "description": "ID greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "last_user_msg_time_gt",
+            "in": "query",
+            "description": "Last user message time greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_gt",
+            "in": "query",
+            "description": "Time greater than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "include_messages",
+            "description": "Include messages within chat",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "group_by_nick",
+            "description": "Group by nick",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "group_by_phone",
+            "description": "Group by phone",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "group_by_email",
+            "description": "Group by e-mail.",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "prefill_fields",
+            "description": "What fields to prefill E.g time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "ignore_fields",
+            "description": "What fields to skip E.g product_id, product, department, time, status, user, additional_data, additional_data_array, chat_variables, chat_variables_array",
+            "required": false,
+            "type": "string",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat list",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/chatscount": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Get only number of chats",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {{chats_parameters}}{
+            "name": "departament_id",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "departament_groups_ids",
+            "in": "query",
+            "description": "Department group ID's",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Phone",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Email",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "nick",
+            "in": "query",
+            "description": "Nick",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "description": "How many seconds has to be passed from chat start. It's usefull if you want to fetch chats older than n seconds. It's time in seconds from chat start.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "id_gt",
+            "in": "query",
+            "description": "ID greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "last_user_msg_time_gt",
+            "in": "query",
+            "description": "Last user message time greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_gt",
+            "in": "query",
+            "description": "Time greater than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "group_by_nick",
+            "description": "Group by nick",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "group_by_phone",
+            "description": "Group by phone",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "group_by_email",
+            "description": "Group by e-mail.",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat list",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/campaignsconversions": {
+      "get": {
+        "tags": [
+          "online_user"
+        ],
+        "summary": "Search for campaign conversions",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "query",
+            "description": "Department ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "campaign_id",
+            "in": "query",
+            "description": "Campaign id",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "invitation_id",
+            "in": "query",
+            "description": "Invitation id",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "chat_id",
+            "in": "query",
+            "description": "Chat id",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "ctime",
+            "in": "query",
+            "description": "Create time greater than. Unix timestamp",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id greater than",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "con_time",
+            "in": "query",
+            "description": "Conversion time greater than. Unix timestamp",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "invitation_status",
+            "in": "query",
+            "description": "Invitation status.",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "send",
+                "shown",
+                "seen",
+                "chat_started"
+              ]
+            }
+          },
+
+          {
+            "name": "invitation_type",
+            "in": "query",
+            "description": "Invitation type",
+            "required": false,
+            "type": "string",
+            "format": "int32",
+            "enum": [
+              "operator",
+              "system"
+            ]
+          },
+          {
+            "name": "device_type",
+            "in": "query",
+            "description": "Device type",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "pc",
+                "mobile",
+                "tablet"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "required": false,
+            "type": "string",
+            "format": "int32",
+            "default": "20"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset",
+            "required": false,
+            "type": "string",
+            "format": "int32",
+            "default": "0"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "sort order for id",
+            "required": false,
+            "default": "asc",
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "name": "include_onlinevisitor",
+            "description": "Include online visitor record data",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "include_invitation",
+            "description": "Include invitation object",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "include_department",
+            "description": "Include department object",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search for campaign conversions",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/fetchchat": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Fetch chat information",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "query",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "hash",
+            "in": "query",
+            "description": "Hash, optional variable. If provided it will be validated against chat hash also.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat information",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/fetchchatmessages": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Fetch chat messages",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "query",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "workflow",
+            "in": "query",
+            "description": "Should workflow be executed. Like auto responder. Usefull if you are building visitors custom interface.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "last_message_id",
+            "in": "query",
+            "description": "Last message ID from which should be returned next messages.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "ignore_system_messages",
+            "in": "query",
+            "description": "Should system messages be ignored or not.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat messages",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/updatechatattributes": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Updates chat attributes",
+        "description": "Updates chat attributes.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "formData",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "hash",
+            "in": "formData",
+            "description": "Hash",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data",
+            "in": "formData",
+            "description": "Data as encoded JSON format.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/addmsguser": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Add message to chat as a user",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "msg",
+            "in": "formData",
+            "description": "Message",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "chat_id",
+            "in": "formData",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "hash",
+            "in": "formData",
+            "description": "Hash",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message added",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+    "/restapi/addmsgadmin": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Add message to chat as an admin",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "formData",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "msg",
+            "in": "formData",
+            "description": "Message",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sender",
+            "in": "formData",
+            "description": "Sender - operator or bot is sending a message. On it depends how Live Helper Chat will change chat statuses.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "operator",
+              "bot"
+            ]
+          },
+          {
+            "name": "meta_msg",
+            "in": "formData",
+            "description": "Meta body for a message",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "operator_name",
+            "in": "formData",
+            "description": "Set custom operator name for a message",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message added",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/setchatstatus": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Set chat status",
+        "description": "Changes chat status to provided one. Related logic is also executed in the background.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "formData",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "0 - pending, 1 - active, 2 - closed chat, chat box chat - 3, operators chat - 4, bot chat - 5",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chat status was changed",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/getuser": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetches user and verifies provided password",
+        "description": "If user_id is provided. Systems tries to find provided user. If not system tries to find user by email or username. If password is provided it verifies provided password.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "E-mail",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "Password",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat messages",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/getusers": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fetches users",
+        "description": "Returns list of all system users.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/isonline": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Check is someone online",
+        "description": "Returns global status is anyone online",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ignore_user_status",
+            "in": "query",
+            "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/isonlinedepartment/{department_id}": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Check is department online",
+        "description": "Returns status for particular department",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "ignore_user_status",
+            "in": "query",
+            "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "exclude_bot",
+            "in": "query",
+            "description": "Exclude bot status",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/isonlineuser/{user_id}": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Check is user online",
+        "description": "Returns status for particular user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/isonlinechat/{chat_id}": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Check is user anyone from operators online for provided chat",
+        "description": "Returns status for particular user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "ignore_user_status",
+            "in": "query",
+            "description": "Ignore user status",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "exclude_bot",
+            "in": "query",
+            "description": "Exclude bot status",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/groupsbyobject/{object_id}/{type}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns objects by object id and type",
+        "description": "Is used to get objects by object id and type. This can be used in third party software to have custom permissions.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "object_id",
+            "in": "path",
+            "description": "Object ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/groupsidbyobject/{object_id}/{type}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns list of groups id by object id and type",
+        "description": "Is used to get list of groups by object id and type. This can be used in third party software to have custom permissions.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "object_id",
+            "in": "path",
+            "description": "Object ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/listofobjectid/{user_id}/{type}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Returns list of objects user can access by user id and type of object",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/updatelastactivity/{user_id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Updates last operator activity. So chat considers operator as online",
+        "description": "Updates last operator activity. So chat considers operator as online",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/setonlinestatus/{user_id}/{online}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Changes operator status to offline or online",
+        "description": "Updates operator status to online or offline",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "online",
+            "in": "path",
+            "description": "1 - online, 0 - offline",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Login to application, also registers device if required",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "formData",
+            "description": "Username",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "generate_token",
+            "in": "formData",
+            "description": "Should we generate authentification/session token",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "device_token",
+            "in": "formData",
+            "description": "Device token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "device",
+            "in": "formData",
+            "description": "Device type",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "unknown",
+              "ios",
+              "android"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+    "/restapi/loginbytoken": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Logins user by token",
+        "description": "",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "r",
+            "in": "query",
+            "description": "Redirect url",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "api",
+            "description": "Is it api mode",
+            "required": false,
+            "type": "boolean",
+            "default": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+    "/restapi/logout": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Revokes token if it's found",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "formData",
+            "description": "Token",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+    "/restapi/bots": {
+      "get": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Bot list",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "attr_str_1",
+            "in": "query",
+            "description": "Custom attribute attr_str_1 (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "attr_str_2",
+            "in": "query",
+            "description": "Custom attribute attr_str_2 (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "attr_str_3",
+            "in": "query",
+            "description": "Custom attribute attr_str_3 (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name like %name%",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "nick",
+            "in": "query",
+            "description": "Nick like %nick%",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of bots",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/departments": {
+      "get": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Departments list",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "attr_int_1",
+            "in": "query",
+            "description": "Custom attribute attr_int_1 (exact match)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "attr_int_2",
+            "in": "query",
+            "description": "Custom attribute attr_int_2 (exact match)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "attr_int_3",
+            "in": "query",
+            "description": "Custom attribute attr_int_3 (exact match)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Custom attribute email (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name like %name%",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "Custom attribute identifier (exact match)",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "description": "Disabled",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "hidden",
+            "in": "query",
+            "description": "Hidden",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of departments",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/extensions": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "List of activated extensions",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of activated extensions",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/department": {
+      "post": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Create a new department",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Department object that needs to be added to the lhc",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Department"
+              }
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a department with provided attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/department/{department_id}": {
+      "put": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Update a department",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Bot object that needs to be added to the lhc",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Department"
+            }
+          },
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates department with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Deletes specified department",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department to delete",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified department",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/bot": {
+      "post": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Create a bot",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Bot object that needs to be added to the lhc",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Bot"
+              }
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a bot with provided attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/chat/{chat_id}": {
+      "put": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Update a chat",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Chat object that needs to be modified in Live Helper Chat",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Chat"
+            }
+          },
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates chat with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Delete a chat",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID to delete",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified chat",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/bot/{bot_id}": {
+      "put": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Update a bot",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Bot object that needs to be added to the lhc",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Bot"
+              }
+            },
+            {
+              "name": "bot_id",
+              "in": "path",
+              "description": "Bot ID to update",
+              "required": true,
+              "type": "string",
+              "format": "int32"
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates bot with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "bot"
+        ],
+        "summary": "Deletes specified bot",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "bot_id",
+            "in": "path",
+            "description": "Bot ID to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified bot",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    }{{append_paths}}
+  },
+  "securityDefinitions": {
+    "login": {
+      "type": "basic",
+      "description": "Basic authentication"
+    }
+  },
+  "definitions": {
+{{append_definitions}}"Chat": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unque Chat ID",
+          "example": null
+        },
+        "nick": {
+          "type": "string",
+          "default": "Visitor",
+          "description": "Visitor nick",
+          "example": "Visitor"
+        },
+        "status": {
+          "type": "integer",
+          "description": "const STATUS_PENDING_CHAT = 0;\nconst STATUS_ACTIVE_CHAT = 1;\nconst STATUS_CLOSED_CHAT = 2;\nconst STATUS_CHATBOX_CHAT = 3;\nconst STATUS_OPERATORS_CHAT = 4;\nconst STATUS_BOT_CHAT = 5;",
+          "example": null
+        },
+        "status_sub": {
+          "type": "integer",
+          "description": "const STATUS_SUB_DEFAULT = 0;\n   const STATUS_SUB_OWNER_CHANGED = 1;\n   const STATUS_SUB_CONTACT_FORM = 2;\n   const STATUS_SUB_USER_CLOSED_CHAT = 3;\n   const STATUS_SUB_START_ON_KEY_UP = 4;\n   const STATUS_SUB_SURVEY_SHOW = 5;\n   const STATUS_SUB_SURVEY_COLLECTED = 6;\n   const STATUS_SUB_OFFLINE_REQUEST = 7;\n   const STATUS_SUB_ON_HOLD = 8;",
+          "example": null
+        },
+        "status_sub_arg": {
+          "type": "string",
+          "description": "Custom arguments for sub status",
+          "example": null
+        },
+        "status_sub_sub": {
+          "type": "integer",
+          "description": "   const STATUS_SUB_SUB_DEFAULT = 0;\n   const STATUS_SUB_SUB_TRANSFERED = 1;\n   const STATUS_SUB_SUB_CLOSED = 2; // Chat was previously closed, but became pending again.",
+          "example": null
+        },
+        "sender_user_id": {
+          "type": "integer",
+          "description": "What operator (id) transferred chat",
+          "example": null
+        },
+        "time": {
+          "type": "integer",
+          "description": "Chat creation time in unix timestamp",
+          "example": null
+        },
+        "user_id": {
+          "type": "integer",
+          "description": "To what operator chat is assigned",
+          "example": null
+        },
+        "hash": {
+          "type": "string",
+          "description": "Security hash. Used to check that visitor has access to chat.",
+          "example": null
+        },
+        "ip": {
+          "type": "string",
+          "description": "Visitor IP",
+          "example": null
+        },
+        "referrer": {
+          "type": "string",
+          "description": "Referrer page. From what page customer come to website.",
+          "example": null
+        },
+        "dep_id": {
+          "type": "integer",
+          "description": "To what department chat belongs to",
+          "example": null
+        },
+        "email": {
+          "type": "string",
+          "description": "Customer e-mail",
+          "example": null
+        },
+        "user_status": {
+          "type": "integer",
+          "description": "   const USER_STATUS_JOINED_CHAT = 0;\n   const USER_STATUS_CLOSED_CHAT = 1;\n   const USER_STATUS_PENDING_REOPEN = 2;",
+          "example": null
+        },
+        "country_code": {
+          "type": "string",
+          "description": "Two letter country code",
+          "example": null
+        },
+        "country_name": {
+          "type": "string",
+          "description": "Full country name",
+          "example": null
+        },
+        "user_typing": {
+          "type": "integer",
+          "description": "Holds timestamp then visitor started typing. Is updated constantly while visitor is typing.",
+          "example": null
+        },
+        "user_typing_txt": {
+          "type": "string",
+          "description": "Visitor typing text",
+          "example": null
+        },
+        "operator_typing": {
+          "type": "integer",
+          "description": "Operator started typing. Stores timestamp then it started.",
+          "example": null
+        },
+        "operator_typing_id": {
+          "type": "integer",
+          "description": "Stores what operator started typing.",
+          "example": null
+        },
+        "phone": {
+          "type": "string",
+          "description": "Customer phone",
+          "example": null
+        },
+        "has_unread_messages": {
+          "type": "integer",
+          "description": "Has operator unread messages from visitor. 0 - no, 1 - yes",
+          "example": null
+        },
+        "has_unread_op_messages": {
+          "type": "integer",
+          "description": "Has visitor unread messages from operator. 0 - no, 1 - yes",
+          "example": null
+        },
+        "last_msg_id": {
+          "type": "integer",
+          "description": "Last chat message id",
+          "example": null
+        },
+        "mail_send": {
+          "type": "integer",
+          "description": "Was mail send to customer. 0 - no, 1 - yes",
+          "example": null
+        },
+        "lat": {
+          "type": "string",
+          "description": "Latitude of visitor location",
+          "example": null
+        },
+        "lon": {
+          "type": "string",
+          "description": "Longitute of visitor location",
+          "example": null
+        },
+        "city": {
+          "type": "string",
+          "description": "Detected visitor city",
+          "example": null
+        },
+        "additional_data": {
+          "type": "string",
+          "description": "Stores additional passed chat data in JSON format.",
+          "example": null
+        },
+        "session_referrer": {
+          "type": "string",
+          "description": "From what page chat was started.",
+          "example": null
+        },
+        "wait_time": {
+          "type": "integer",
+          "description": "How long visitor waited for chat being accepted.",
+          "example": null
+        },
+        "chat_duration": {
+          "type": "integer",
+          "description": "How long chat took. Calculated on chat close.",
+          "example": null
+        },
+        "chat_variables": {
+          "type": "string",
+          "description": "Chat variables. These can store custom chat data accessed only by extensions. Stored as JSON format.",
+          "example": null
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Chat priority in pending chat list. Also used in auto assign workflow.",
+          "example": null
+        },
+        "chat_initiator": {
+          "type": "integer",
+          "description": "How chat was initialized.\nconst CHAT_INITIATOR_DEFAULT = 0;\n   const CHAT_INITIATOR_PROACTIVE = 1;",
+          "example": null
+        },
+        "user_tz_identifier": {
+          "type": "string",
+          "description": "Visitor timezone detected.",
+          "example": null
+        },
+        "user_closed_ts": {
+          "type": "string",
+          "description": "Timestamp then visitor closed a widget.",
+          "example": null
+        },
+        "lsync": {
+          "type": "string",
+          "description": "Last time visitor checked for new messages. Updated every 30 seconds from last update.",
+          "example": null
+        },
+        "online_user_id": {
+          "type": "string",
+          "description": "Online user record ID",
+          "example": null
+        },
+        "unread_messages_informed": {
+          "type": "integer",
+          "description": "Have we informed operator by e-mail. Etc. That there is unread chat messages from visitor.",
+          "example": null
+        },
+        "unread_op_messages_informed": {
+          "type": "integer",
+          "description": "Have we informed visitor by e-mail. Etc. that there is unread chat messages from operator.",
+          "example": null
+        },
+        "reinform_timeout": {
+          "type": "integer",
+          "description": "If messages stays for defined amount unread in seconds we should inform operator about unread message.",
+          "example": null
+        },
+        "auto_responder_id": {
+          "type": "integer",
+          "description": "Auto responder ID",
+          "example": null
+        },
+        "transfer_timeout_ts": {
+          "type": "integer",
+          "description": "To be defined...",
+          "example": null
+        },
+        "transfer_if_na": {
+          "type": "integer",
+          "description": "To be defined...",
+          "example": null
+        },
+        "transfer_timeout_ac": {
+          "type": "integer",
+          "description": "To be defined...",
+          "example": null
+        },
+        "transfer_uid": {
+          "type": "integer",
+          "description": "To be defined...",
+          "example": null
+        },
+        "na_cb_executed": {
+          "type": "integer",
+          "description": "To be defined...",
+          "example": null
+        },
+        "nc_cb_executed": {
+          "type": "integer",
+          "description": "To be defined...",
+          "example": null
+        },
+        "fbst": {
+          "type": "integer",
+          "description": "0 - No feedback left. 1 - Up voted. 2 - Down voted.",
+          "example": null
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Operator remarks",
+          "example": null
+        },
+        "operation": {
+          "type": "string",
+          "description": "What operation is pending visitor? Holds javascript to executed.",
+          "example": null
+        },
+        "operation_admin": {
+          "type": "string",
+          "description": "What operation is pending operator? Holds javascript to executed.",
+          "example": null
+        },
+        "screenshot_id": {
+          "type": "integer",
+          "description": "File id which holds screenshot.",
+          "example": null
+        },
+        "tslasign": {
+          "type": "integer",
+          "description": "Timestamp since last auto assignment. Used in chat auto balancing.",
+          "example": null
+        },
+        "usaccept": {
+          "type": "integer",
+          "description": "Operator status while he was accepting chat",
+          "example": null
+        },
+        "chat_locale": {
+          "type": "string",
+          "description": "Visitor language",
+          "example": null
+        },
+        "chat_locale_to": {
+          "type": "string",
+          "description": "Operator language",
+          "example": null
+        },
+        "unanswered_chat": {
+          "type": "integer",
+          "description": "Was chat unanswered before user has left a chat",
+          "example": null
+        },
+        "product_id": {
+          "type": "integer",
+          "description": "Product ID",
+          "example": null
+        },
+        "invitation_id": {
+          "type": "integer",
+          "description": "By what invitation chat was started",
+          "example": null
+        },
+        "uagent": {
+          "type": "integer",
+          "description": "Visitor user agent",
+          "example": null
+        },
+        "device_type": {
+          "type": "integer",
+          "description": "0 - PC, 1 - mobile, 2 - tablet",
+          "example": null
+        },
+        "pnd_time": {
+          "type": "integer",
+          "description": "Time then chat became pending. Unix timestamp.",
+          "example": null
+        },
+        "cls_time": {
+          "type": "integer",
+          "description": "Time then chat was closed. Unix timestamp.",
+          "example": null
+        },
+        "anonymized": {
+          "type": "integer",
+          "description": "Was chat data anonymized. 0 - no, 1 - yes",
+          "example": null
+        }
+      },
+      "example" : {
+        "nick" : "Visitor"
+      }
+    },
+    "Bot": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "name",
+          "required": true,
+          "description": "Name of the bot"
+        },
+        "nick": {
+          "type": "string",
+          "default": "nick",
+          "required": true,
+          "description": "Nick visible by customer"
+        },
+        "configuration": {
+          "type": "string",
+          "description": "Configuration attributes. Leave it empty just.",
+          "example": null
+        },
+        "attr_str_1": {
+          "type": "string",
+          "description": "Field can be used by extensions",
+          "example": null
+        },
+        "attr_str_2": {
+          "type": "string",
+          "description": "Field can be used by extensions",
+          "example": null
+        },
+        "attr_str_3": {
+          "type": "string",
+          "description": "Field can be used by extensions",
+          "example": null
+        },
+        "image": {
+          "type": "string",
+          "format": "byte",
+          "description": "Image content encoded with base64_encode"
+        }
+      },
+      "example" : {
+        "name" : "Name of the bot",
+        "nick" : "Nick of the bot"
+      }
+    },
+    "Department": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "default": "Name",
+          "example" : "Department name",
+          "required": true,
+          "description": "Name of the department"
+        },
+        "Email": {
+          "type": "string",
+          "format": "email",
+          "nullable": true,
+          "required": false,
+          "example": null,
+          "description": "E-mail"
+        },
+        "XMPPRecipients": {
+          "type": "string",
+          "nullable": true,
+          "example": null
+        },
+        "XMPPRecipientsGroup": {
+          "type": "string",
+          "nullable": true,
+          "example": null
+        },
+        "Identifier": {
+          "type": "string",
+          "nullable": true,
+          "example": null
+        },
+        "Priority": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "SortPriority": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        },
+        "TansferDepartmentID": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "TransferTimeout": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 5
+        },
+        "delay_lm": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 5
+        },
+        "OnlineHoursActive": {
+          "type": "boolean",
+          "nullable": true,
+          "example": true
+        },
+        "Disabled": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "Hidden": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "inform_close": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "inform_unread": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "nc_cb_execute": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "AutoAssignActive": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "VisibleIfOnline": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "ExcludeInactiveChats": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "MaxNumberActiveChats": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "MaxWaitTimeoutSeconds": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "MaxNumberActiveDepChats": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "pending_max": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "delay_before_assign": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0
+        },
+        "inform_unread_delay": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0,
+          "min": 5
+        },
+        "inform_delay": {
+          "type": "integer",
+          "nullable": true,
+          "example": 0,
+          "min": 0
+        },
+        "inform_close_all": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "inform_close_all_email": {
+          "type": "string",
+          "nullable": true,
+          "example": ""
+        },
+        "products_enabled": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "products_required": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "assign_same_language": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "hide_send_email": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "bot_only_offline": {
+          "type": "boolean",
+          "nullable": true,
+          "example": false
+        },
+        "auto_delay_timeout": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "auto_delay_var": {
+          "type": "string",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "survey_id": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "bot_id": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "bot_tr_id": {
+          "type": "integer",
+          "nullable": true,
+          "example": null,
+          "min" : 1
+        },
+        "attr_int_1": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        },
+        "attr_int_2": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        },
+        "attr_int_3": {
+          "type": "integer",
+          "nullable": true,
+          "example": null
+        }
+      },
+      "example" : {
+        "Name" : "Name of department"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Live Helper Chat",
+    "url": "https://livehelperchat.com"
+  }
+}

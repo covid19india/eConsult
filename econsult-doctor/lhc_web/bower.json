@@ -1,0 +1,11 @@
+{
+  "name": "live_helper_chat",
+  "description": "Live Helper Chat external dependencies",
+  "version": "1.0.0",
+  "dependencies": {
+    "jqueryui" : "*",
+    "bootstrap": "4.2.1",
+    "metisMenu" : "*",
+    "material-design-icons" : "*"
+  }  
+}

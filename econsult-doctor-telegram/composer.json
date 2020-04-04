@@ -1,0 +1,24 @@
+{
+  "name": "livehelperchat/telegram",
+  "version": "1.0",
+  "description": "Telegram support for Live Helper Chat",
+  "type": "project",
+  "homepage": "http://ivehelperchat.com",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Live helper Chat",
+      "homepage": "http://ivehelperchat.com"
+    }
+  ],
+  "support": {
+    "email": "remdex@mgmail.com"
+  },
+  "require": {
+    "longman/telegram-bot": "dev-master#54823db1306a791830a7915072f03ff84fd7c4f3"
+  },
+  "minimum-stability": "dev",
+  "config": {
+    "vendor-dir": "vendor"
+  }
+}

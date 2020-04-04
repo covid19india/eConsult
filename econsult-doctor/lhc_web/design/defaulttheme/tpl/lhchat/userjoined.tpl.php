@@ -1,0 +1,1 @@
+<div class="message-row system-response"><i><span class="usr-tit sys-tit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></span><div class="msg-body"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userjoined','Visitor has joined the chat!')?></div></i></div>
