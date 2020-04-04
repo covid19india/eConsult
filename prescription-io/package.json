@@ -1,0 +1,29 @@
+{
+  "name": "prescription",
+  "version": "1.0.0",
+  "description": "Creates prescription pdf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VibhorKanojia/Prescription.git"
+  },
+  "keywords": [
+    "eConsult",
+    "Node.js",
+    "html-pdf"
+  ],
+  "author": "Vibhor Kanojia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VibhorKanojia/Prescription/issues"
+  },
+  "homepage": "https://github.com/VibhorKanojia/Prescription#readme",
+  "dependencies": {
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "html-pdf": "^2.2.0"
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .info {
+                color: #555555;
+                text-align: center;
+            }
+
+            .info span {
+                color: #111111;
+            }
+
+            .patient {
+                float:left;
+                text-align: left;
+            }
+
+            .metadata {
+                float:right;
+                text-align: right;
+            }
+
+            .medicines {
+                color: #555555;
+            }
+
+            .medicines span {
+                color: #111111;
+            }
+            
+            .clear { clear:both; }
+
+            img {
+                position: absolute;
+                margin-left: 2.5%;
+                height: 30pt;
+                width: 30pt;
+            }
+            p {
+              margin: 2pt;
+            }
+
+            hr {
+                color: #555555;
+            }
+
+            body {
+              font-family: Sans-Serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="data:image/png;base64,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" alt="eConsult logo" />
+        </div>
+        <div style="width: 95%; height: 100%; margin: 0 2.5%;">
+            <div style="font-size: 7pt">	
+                <% if (details) { %>
+                    <div class="info"> 
+			         <p><span><%= details.doctor.name %></span></p>
+			         <p><%= details.doctor.details %></p>
+			         <p>Medical Registration Number: <%= details.doctor.registration_number %></p>
+			         <p><%= details.doctor.location %></p>
+                    </div>
+                    <hr>
+                    
+                    <div class="info patient">
+                        <p><span><%= details.patient.name %></span></p>
+                        <p><%= details.patient.age %>, <%= details.patient.gender %>, located in <%= details.patient.location %>.</p>
+                    </div>
+
+                    <div class="info metadata">
+                        <p>Prescription Id: <%= details.prescription.id %></p>
+                        <p><%= details.prescription.issued_on %></p>
+                    </div>
+                    <div class="clear"></div>
+                    <br>
+                    <div class="info" style="text-align: left">
+                        <p><span>Presenting complaints:</span> <%= details.prescription.presenting_complaints %></p>
+                        <p><span>Provisional diagnosis:</span> <%= details.prescription.provisional_diagnosis %></p>
+                    </div>
+
+                    <div class="medicines">
+                        <h1 style="color:#000000"> &#8478; </h1>
+                        <h2> <span> Medicines </span></h2>
+                        
+                        <% if (details.prescription.medicines.length > 0) { %>
+                            <% details.prescription.medicines.forEach(medicine => {%>
+                            <div>
+                                <p><span><%= medicine.name %></span></p>
+                                <div style="float:left"><p><%= medicine.frequency %> time(s) a day x <%= medicine.span %> days</p></div>
+                                <div style="float:right"><p><%= medicine.usage %></p></div>
+                                <div class="clear"></div>
+                                <br>
+                            <%  });%>
+                            </div>
+                        <% }%>
+                    </div>
+
+                    <hr>
+                    <div class="info" style="text-align: left">
+                        <p><span>Additional remarks:</span> <%= details.prescription.additional_remarks %></p>
+                        <br>
+                        <p><span>Follow-up advice:</span> <%= details.prescription.follow_up_advice %></p>
+                    </div>
+
+                    <div class="info" style="float:right;margin-top:10%">
+                        <p> Doctor's Signature<br>
+                        <%= details.prescription.issued_on %></p>
+                    </div>
+                    <div class="clear"></div>
+
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+.header {
+    color: #888888;
+    text-align: center;
+}
+
+#patient_details {
+    color: #444444;
+    text-align: left;
+}
+
+body {
+  font-family: Sans-Serif;
+}
