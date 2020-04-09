@@ -15,9 +15,5 @@ A huge number of patients who need help with ailments which does not require hos
 ## **List of Modules planned (tentative):** (from A to Z)
 
 - **doctor-onboarding:** On-board doctors and verify registration against API
-- **econsult-doctor:** Dashboard for Doctors to manage consultations
-- **econsult-fbmessenger:** Access of eConsult for Patients via Facebook Messenger 
-- **econsult-telegram:** Access of eConsult for Patients & Doctors via Telegram
 - **econsult-website:** Landing Website (This Project [will be updated further in another repo](https://github.com/covid19india/econsult-website/))
-- **oauth:** OAuth for Patient Profiles
-- **prescription-io:** Generate Prescriptions for Patients
+- **prescription-io:** Generates and Stores Prescriptions for Patients.
