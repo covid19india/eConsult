@@ -1,1 +1,0 @@
-<?php $chat_chat_tabs_actions_speech_enabled = true;?>

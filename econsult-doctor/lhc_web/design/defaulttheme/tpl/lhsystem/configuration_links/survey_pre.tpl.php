@@ -1,1 +1,0 @@
-<?php $system_configuration_links_survey_enabled = true;?>

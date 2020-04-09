@@ -1,1 +1,0 @@
-<li><a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chats list');?></a></li>

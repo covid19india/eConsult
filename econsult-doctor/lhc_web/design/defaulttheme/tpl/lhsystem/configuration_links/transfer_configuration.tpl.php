@@ -1,1 +1,0 @@
-<li><a href="<?php echo erLhcoreClassDesign::baseurl('system/transferconfiguration')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat transfer configuration');?></a></li>

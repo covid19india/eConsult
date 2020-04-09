@@ -1,1 +1,0 @@
-<?php $system_configuration_links_configuresmtp_enabled = true;?>

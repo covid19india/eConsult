@@ -1,2 +1,0 @@
-<li role="presentation" class="nav-item"><a class="nav-link" href="#userchats" aria-controls="userchats" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chats')?></a></li>
-    		

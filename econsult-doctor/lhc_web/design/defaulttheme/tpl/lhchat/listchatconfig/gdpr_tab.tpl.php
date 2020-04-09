@@ -1,1 +1,0 @@
-<li role="presentation" class="nav-item"><a class="nav-link" href="#gdpr" aria-controls="gdpr" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Data protection');?></a></li>

@@ -1,1 +1,0 @@
-<?php $information_tab_user_files_tab_enabled = true;?>

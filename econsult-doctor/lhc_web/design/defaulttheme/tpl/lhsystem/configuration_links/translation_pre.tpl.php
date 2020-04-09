@@ -1,1 +1,0 @@
-<?php $system_configuration_links_translation_enabled = true;?>

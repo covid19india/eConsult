@@ -1,1 +1,0 @@
-<?php $system_configuration_tabs_content_speech_enabled = true;?>

@@ -1,1 +1,0 @@
-<?php $system_configuration_links_statistic_enabled = true;?>

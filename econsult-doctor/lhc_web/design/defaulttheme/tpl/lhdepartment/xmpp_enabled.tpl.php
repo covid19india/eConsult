@@ -1,1 +1,0 @@
-<?php $department_xmpp_enabled = true; ?>

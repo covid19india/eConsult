@@ -1,1 +1,0 @@
-<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','My active and pending chats');?>

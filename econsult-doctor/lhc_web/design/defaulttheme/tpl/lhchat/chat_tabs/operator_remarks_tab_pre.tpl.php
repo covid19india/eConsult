@@ -1,1 +1,0 @@
-<?php $operator_remarks_tab_enabled = true;?>

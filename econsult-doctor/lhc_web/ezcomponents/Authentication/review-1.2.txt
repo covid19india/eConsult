@@ -1,2 +1,0 @@
-[ ] I think 'returnUrl' should be renamed to 'redirectUrl' -- as its name
-    makes it more clear what it does.

@@ -1,1 +1,0 @@
-<?php $chat_translation_enabled = true;?>

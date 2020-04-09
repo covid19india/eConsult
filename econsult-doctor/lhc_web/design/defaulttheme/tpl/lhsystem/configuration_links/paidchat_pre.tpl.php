@@ -1,1 +1,0 @@
-<?php $system_configuration_paid_chat_enabled = true; ?>

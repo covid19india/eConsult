@@ -1,1 +1,0 @@
-<?php $operator_screenshot_tab_enabled = true;?>

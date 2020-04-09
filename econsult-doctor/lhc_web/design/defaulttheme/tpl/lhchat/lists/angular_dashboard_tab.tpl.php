@@ -1,2 +1,0 @@
- <li role="presentation" class="nav-item"><a class="nav-link" href="#dashboard" aria-controls="dashboard" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Dashboard');?>"><i class="material-icons mr-0">info_outline</i></a></li>
-            

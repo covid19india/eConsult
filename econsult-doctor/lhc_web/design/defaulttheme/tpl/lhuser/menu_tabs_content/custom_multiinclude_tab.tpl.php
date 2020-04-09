@@ -1,5 +1,0 @@
-<?php 
-/**
- * Menu tabs content
- * */
-?>

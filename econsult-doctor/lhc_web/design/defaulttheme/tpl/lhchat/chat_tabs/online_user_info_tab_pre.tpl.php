@@ -1,1 +1,0 @@
-<?php $information_tab_online_user_info_tab_enabled = true;?>

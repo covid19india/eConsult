@@ -1,4 +1,0 @@
-This component provides a set of classes that help you to debug an
-application. It provides timers and report generators for different formats
-that give a summary of warnings and errors that occurred within your
-application.

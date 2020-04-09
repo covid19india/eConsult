@@ -1,2 +1,0 @@
-The GraphDatabaseTiein provides functionality to directly use PDO statements
-as basis for ezcGraph Datasets.

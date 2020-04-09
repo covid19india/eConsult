@@ -1,1 +1,0 @@
-<?php /* Placeholder for overrides */ ?>

@@ -1,3 +1,0 @@
-$(function() {
-    $('#side-menu').metisMenu();
-});

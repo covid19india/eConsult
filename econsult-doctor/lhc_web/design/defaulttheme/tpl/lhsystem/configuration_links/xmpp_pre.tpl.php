@@ -1,1 +1,0 @@
-<?php $system_configuration_links_xmpp_enabled = true;?>

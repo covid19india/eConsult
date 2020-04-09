@@ -1,3 +1,0 @@
-<?php
-/* Override me */
-?>

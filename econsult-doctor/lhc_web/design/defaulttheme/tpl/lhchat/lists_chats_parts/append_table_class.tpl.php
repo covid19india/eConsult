@@ -1,1 +1,0 @@
-<?php $appendTableClass = ' table-sm';?>

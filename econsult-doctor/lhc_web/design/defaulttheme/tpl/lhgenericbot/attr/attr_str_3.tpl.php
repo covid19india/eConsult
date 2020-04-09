@@ -1,1 +1,0 @@
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom attribute 3');?></label>

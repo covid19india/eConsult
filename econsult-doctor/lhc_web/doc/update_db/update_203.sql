@@ -1,1 +1,0 @@
-ALTER TABLE `lh_abstract_widget_theme` ADD `modified` int(11) NOT NULL, COMMENT='';

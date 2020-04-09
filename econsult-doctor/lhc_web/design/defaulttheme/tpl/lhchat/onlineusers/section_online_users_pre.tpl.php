@@ -1,1 +1,0 @@
-<?php $chat_onlineusers_section_online_users_enabled = true?>

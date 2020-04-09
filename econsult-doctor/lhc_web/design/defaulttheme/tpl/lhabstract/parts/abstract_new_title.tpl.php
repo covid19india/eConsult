@@ -1,1 +1,0 @@
-<h1><?php echo htmlspecialchars($object_trans['name'])?></h1>

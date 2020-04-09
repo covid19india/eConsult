@@ -1,1 +1,0 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','GEO adjustment');?></h1>
