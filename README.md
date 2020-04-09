@@ -18,6 +18,6 @@ A huge number of patients who need help with ailments which does not require hos
 - **econsult-doctor:** Dashboard for Doctors to manage consultations
 - **econsult-fbmessenger:** Access of eConsult for Patients via Facebook Messenger 
 - **econsult-telegram:** Access of eConsult for Patients & Doctors via Telegram
-- **econsult-website:** Additional Web-based frontend pages
+- **econsult-website:** Landing Website (This Project [will be updated further in another repo](https://github.com/covid19india/econsult-website/))
 - **oauth:** OAuth for Patient Profiles
 - **prescription-io:** Generate Prescriptions for Patients
