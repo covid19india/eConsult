@@ -1,3 +1,5 @@
+## (This Project [will be updated further in another repo](https://github.com/covid19india/econsult-prescribe/))
+
 Prescription pdf template generator module.
 It starts a node.js server that accepts POST requests and generates a pdf. 
 The pdf is then sent to the client as response.
