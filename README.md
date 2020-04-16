@@ -16,4 +16,4 @@ A huge number of patients who need help with ailments which does not require hos
 
 - **doctor-onboarding:** On-board doctors and verify registration against API
 - **econsult-website:** Landing Website (This Project [will be updated further in another repo](https://github.com/covid19india/econsult-website/))
-- **prescription-io:** Generates and Stores Prescriptions for Patients.
+- **prescription-io:** Generates and Stores Prescriptions for Patients. (This Project [will be updated further in another repo](https://github.com/covid19india/econsult-prescribe/))
